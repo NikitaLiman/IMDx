@@ -8,12 +8,10 @@ import { GetReleaseMovies } from "@/services/fetchMovies&Serias";
 import { Movie } from "@/interfaces";
 import { useTranslation } from "react-i18next";
 
-interface Props {}
-
-export const DiscoverPage: React.FC<Props> = () => {
+export const DiscoverPage = () => {
   const { t } = useTranslation();
   const [ReleaseMovies, setReleaseMovies] = React.useState<Movie[]>([]);
-  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [activeIndex, setActiveIndex] = React.useState<number>(0);
   const [loading, setLoading] = React.useState<boolean>(true);
   const GetRelease = async () => {
     setLoading(true);

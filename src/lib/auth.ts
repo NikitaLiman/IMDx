@@ -1,4 +1,4 @@
-import NextAuth, { AuthOptions } from "next-auth";
+import { AuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "../../prisma/prisma-client";
@@ -113,15 +113,7 @@ export const authOptions: AuthOptions = {
 
       return token;
     },
-    async session({
-      session,
-      token,
-      user,
-    }: {
-      session: any;
-      token: any;
-      user: any;
-    }) {
+    async session({ session, token }: { session: any; token: any; user: any }) {
       if (session?.user) {
         session.user.id = token.id;
         session.user.role = token.role;

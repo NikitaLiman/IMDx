@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
-import Register from "./components/register";
 import { Container } from "@/app/components";
 import { useRouter } from "next/navigation";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Styles from "./sass/pageLogin.module.scss";
 import LoginForm from "./components/login";
 import RegisterForm from "./components/register";
-import Image from "next/image";
-import { ArrowDown } from "lucide-react";
+
 import Link from "next/link";
 export default function Registration() {
   const { data: session, status } = useSession();

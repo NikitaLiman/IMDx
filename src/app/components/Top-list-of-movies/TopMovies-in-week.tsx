@@ -12,9 +12,8 @@ import Link from "next/link";
 import { CircleOff } from "lucide-react";
 import { useRecentlyViewed } from "@/app/store/RecentlyViewed";
 import { useTranslation } from "react-i18next";
-interface Props {}
 
-export const TopMoviesInWeek: React.FC<Props> = () => {
+export const TopMoviesInWeek = () => {
   const { t } = useTranslation();
   const [movies, setMovies] = React.useState<Movie[]>([]);
   const { addToRecentlyViewed, isInViewed } = useRecentlyViewed();

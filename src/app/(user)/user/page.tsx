@@ -12,13 +12,11 @@ import { GetCreditJpg } from "@/app/utils/getCreditJpg";
 import star from "@/app/img/star-svgrepo-com.svg";
 import Link from "next/link";
 import { MovieAndTvShow } from "@/interfaces";
-import { useRecentlyViewed } from "@/app/store/RecentlyViewed";
 import { useRouter } from "next/navigation";
 export default function UserPage() {
   const { data: session }: any = useSession();
   const WatchlistItems = useWatchlist((state) => state.watchlist);
   const { isInWatchlist, removeFromWatchlist, addToWatchlist } = useWatchlist();
-  const { Viewed, clearViewed } = useRecentlyViewed();
   const date = new Date(session?.user.createdAT);
   const formattedDate = date.toLocaleDateString("en-US", {
     year: "numeric",

@@ -10,9 +10,7 @@ import Image from "next/image";
 import upArrow from "@/app/img/arrow-drop-up-1.svg";
 import { Footer } from "../components/footer";
 
-interface Props {}
-
-export const HomePage: React.FC<Props> = () => {
+export const HomePage = () => {
   const [showScrollUp, setShowScrollUp] = React.useState<boolean>(false);
 
   React.useEffect(() => {

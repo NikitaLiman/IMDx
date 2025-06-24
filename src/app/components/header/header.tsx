@@ -2,7 +2,6 @@
 
 import React from "react";
 import Styles from "./sass/header.module.scss";
-import { HamBurger } from "@/app/shared/ui/index";
 import { Container } from "@/app/components/index";
 import { ProfileButton } from "@/app/components/header/index";
 import { SearchInput } from "./index";
@@ -12,9 +11,8 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useWatchlist } from "@/app/store/watchlist";
 import { useTranslation } from "react-i18next";
-interface Props {}
 
-export const Header: React.FC<Props> = () => {
+export const Header = () => {
   const { t } = useTranslation();
   const WatchListCount = useWatchlist((state) => state.watchlist);
   const { data: session } = useSession();

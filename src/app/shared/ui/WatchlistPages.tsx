@@ -1,6 +1,6 @@
 "use client";
 import { useWatchlist } from "@/app/store/watchlist";
-import { MovieAndTvShow, SearchResultItem } from "@/interfaces";
+import { MovieAndTvShow } from "@/interfaces";
 import Styles from "./sass/watchlistPages.module.scss";
 import { Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -10,9 +10,9 @@ interface Props {
 }
 
 export const WatchlistButtonPages: React.FC<Props> = ({ item }) => {
-  if (!item) return null;
   const { t } = useTranslation();
   const { addToWatchlist, isInWatchlist, removeFromWatchlist } = useWatchlist();
+  if (!item) return null;
 
   const isOn = isInWatchlist(item.id || 0);
 

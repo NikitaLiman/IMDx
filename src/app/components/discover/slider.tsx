@@ -11,7 +11,6 @@ import { Title } from "@/app/shared/ui";
 import {
   ArrowBigLeft,
   ArrowBigRight,
-  BookmarkPlus,
   Check,
   NotebookPen,
   Play,

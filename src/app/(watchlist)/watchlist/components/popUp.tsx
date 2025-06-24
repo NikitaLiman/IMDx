@@ -6,7 +6,6 @@ import Image from "next/image";
 import { GetCreditJpg } from "@/app/utils/getCreditJpg";
 import vector from "@/app/img/right-arrow-svgrepo-com.svg";
 import star from "@/app/img/star-svgrepo-com.svg";
-import { WatchlistButton } from "@/app/shared/ui";
 import { useWatchlist } from "@/app/store/watchlist";
 import { Check, Plus } from "lucide-react";
 import Link from "next/link";
@@ -18,17 +17,8 @@ interface Props {
 
 export const PopUp: React.FC<Props> = ({ items, closePopUp }) => {
   const { t } = useTranslation();
-  if (!items) return null;
+
   const { isInWatchlist, removeFromWatchlist } = useWatchlist();
-
-  const isOn = isInWatchlist(items?.id);
-
-  const handleClick = () => {
-    if (isOn) {
-      removeFromWatchlist(items?.id);
-      closePopUp();
-    }
-  };
   React.useEffect(() => {
     if (items) {
       document.body.style.overflow = "hidden";
@@ -40,6 +30,16 @@ export const PopUp: React.FC<Props> = ({ items, closePopUp }) => {
       document.body.style.overflow = "auto";
     };
   }, [items]);
+  if (!items) return null;
+  const isOn = isInWatchlist(items?.id || 0);
+
+  const handleClick = () => {
+    if (isOn) {
+      removeFromWatchlist(items?.id || 0);
+      closePopUp();
+    }
+  };
+
   return (
     <div className={Styles.container}>
       <div className={Styles.container__content}>

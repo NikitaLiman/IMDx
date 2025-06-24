@@ -84,7 +84,8 @@ export const SearchPage: React.FC<Props> = ({
                     href={`/${queryValue?.[0]?.media_type}/${queryValue?.[0]?.id}`}>
                     <p
                       onClick={() => {
-                        handleClickToViewed(queryValue?.[0]), setQuery("");
+                        handleClickToViewed(queryValue?.[0]);
+                        setQuery("");
                       }}>
                       {getTitle(queryValue?.[0])}
                     </p>
@@ -95,7 +96,7 @@ export const SearchPage: React.FC<Props> = ({
           </div>{" "}
           <div className={Styles.fiveResults}>
             <h1>{t("featuredResults")}</h1>
-            {queryValue.slice(0, 4).map((item, i) => (
+            {queryValue.slice(0, 4).map((item) => (
               <div key={item.id} className={Styles.fiveResults__card}>
                 <div className={Styles.fiveResults__card__content}>
                   {" "}
@@ -142,7 +143,8 @@ export const SearchPage: React.FC<Props> = ({
                   <Link href={`/movie/${item.id}`}>
                     <div
                       onClick={() => {
-                        handleClickToViewed(item), setQuery("");
+                        handleClickToViewed(item);
+                        setQuery("");
                       }}
                       className={Styles.poster_path}>
                       {item.poster_path ? (
@@ -168,7 +170,8 @@ export const SearchPage: React.FC<Props> = ({
                       {" "}
                       <div
                         onClick={() => {
-                          handleClickToViewed(item), setQuery("");
+                          handleClickToViewed(item);
+                          setQuery("");
                         }}
                         className={Styles.queue}>
                         <p>
@@ -193,7 +196,8 @@ export const SearchPage: React.FC<Props> = ({
                   <Link href={`/tv/${item.id}`}>
                     <div
                       onClick={() => {
-                        handleClickToViewed(item), setQuery("");
+                        handleClickToViewed(item);
+                        setQuery("");
                       }}
                       className={Styles.poster_path}>
                       {item.poster_path ? (
@@ -218,7 +222,8 @@ export const SearchPage: React.FC<Props> = ({
                     <Link key={i} href={`/tv/${item.id}`}>
                       <div
                         onClick={() => {
-                          handleClickToViewed(item), setQuery("");
+                          handleClickToViewed(item);
+                          setQuery("");
                         }}
                         className={Styles.queue}>
                         <p>

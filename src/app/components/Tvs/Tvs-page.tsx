@@ -14,9 +14,7 @@ import { CircleOff } from "lucide-react";
 import { useRecentlyViewed } from "@/app/store/RecentlyViewed";
 import { useTranslation } from "react-i18next";
 
-interface Props {}
-
-export const TvPage: React.FC<Props> = () => {
+export const TvPage = () => {
   const { t } = useTranslation();
   const [Tv, setTv] = React.useState<TvShow[]>([]);
   const { addToRecentlyViewed, isInViewed } = useRecentlyViewed();

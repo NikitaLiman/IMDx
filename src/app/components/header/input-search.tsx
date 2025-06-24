@@ -11,9 +11,8 @@ import { useDebounce } from "use-debounce";
 import { SearchMovies } from "@/services/SearchMovies";
 import { SearchPage } from "./search-bar";
 import { useTranslation } from "react-i18next";
-interface Props {}
 
-export const SearchInput: React.FC<Props> = () => {
+export const SearchInput = () => {
   const [queryValue, setQueryValue] = React.useState<any[]>([]);
   const [isDropDownOpen, setIsDropDownOpen] = React.useState<boolean>(false);
   const [selectedId, setSelectedId] = React.useState<number>(0);
@@ -114,7 +113,8 @@ export const SearchInput: React.FC<Props> = () => {
             </div>
             <div
               onClick={() => {
-                setPopUp(false), setQuery("");
+                setPopUp(false);
+                setQuery("");
               }}
               className={Styles.cross}>
               <span>+</span>
@@ -177,7 +177,8 @@ export const SearchInput: React.FC<Props> = () => {
             {DropDownMenu.map((item, i) => (
               <li
                 onClick={() => {
-                  selectId(i), setdrawerUp(false);
+                  selectId(i);
+                  setdrawerUp(false);
                 }}
                 key={i}
                 className={selectedId === i ? Styles.active : ""}>

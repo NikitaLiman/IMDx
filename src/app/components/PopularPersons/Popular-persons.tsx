@@ -10,10 +10,10 @@ import { GetCreditJpg } from "@/app/utils/getCreditJpg";
 import vector from "@/app/img/right-arrow-svgrepo-com.svg";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-interface Props {}
+
 import user from "@/app/img/User-avatar.svg.png";
 
-export const PopularPersons: React.FC<Props> = () => {
+export const PopularPersons = () => {
   const { t } = useTranslation();
   const [TrendingPersons, setTrendingPresons] = React.useState<Person[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);

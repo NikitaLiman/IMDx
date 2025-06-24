@@ -174,7 +174,7 @@ export default function TvPage({ params }: Props) {
                 ? [...Array(10)].map((_, i) => (
                     <div className={Styles.cardSkeleton} key={i}></div>
                   ))
-                : recDetails?.slice(0, 10).map((item, i) => (
+                : recDetails?.slice(0, 10).map((item) => (
                     <Link key={item.id} href={`/tv/${item.id}`}>
                       {" "}
                       <div className={Styles.card}>

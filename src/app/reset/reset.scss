@@ -118,3 +118,6 @@ input[type="file"] {
 html {
   height: fit-content;
 }
+::-webkit-scrollbar {
+  display: none;
+}

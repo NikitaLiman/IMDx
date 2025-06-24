@@ -7,9 +7,7 @@ import Styles from "./sass/LangConfig.module.scss";
 import { useClickAway } from "react-use";
 import { changeLanguage } from "i18next";
 
-interface Props {}
-
-export const LanguageConfig: React.FC<Props> = () => {
+export const LanguageConfig = () => {
   const [isDropDownOpen, setIsDropDownOpen] = React.useState<boolean>(false);
   const [selectedLang, setSelectedLang] = React.useState<string>("en");
   const [activeIndex, setActiveIndex] = React.useState<number>(0);

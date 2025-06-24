@@ -41,7 +41,7 @@ export const ActorRow: React.FC<Props> = ({ Actors, movieId, loading }) => {
                 </div>
               </div>
             ))
-          : Actors?.slice(0, visibleCount).map((item, i) => (
+          : Actors?.slice(0, visibleCount).map((item) => (
               <Link href={`/person/${item.id}`} key={item.id}>
                 <div className={Styles.card}>
                   <div className={Styles.poster_path}>

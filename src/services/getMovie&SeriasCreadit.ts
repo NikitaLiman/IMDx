@@ -5,7 +5,7 @@ export const getMovieCredits = async (id: number) => {
     const { data } = await tmdb.get(`/movie/${id}/credits`);
     console.log(data, "creditsMovies");
     const sortedCredits = data.cast.sort((a: any, b: any) => {
-      a.order - b.order;
+      return a.order - b.order;
     });
     return sortedCredits;
   } catch (error: any) {
@@ -18,7 +18,7 @@ export const getTVCredits = async (id: number) => {
   try {
     const { data } = await tmdb.get(`/tv/${id}/aggregate_credits`);
     const sortedCredits = data.cast.sort((a: any, b: any) => {
-      a.order - b.order;
+      return a.order - b.order;
     });
 
     return sortedCredits;

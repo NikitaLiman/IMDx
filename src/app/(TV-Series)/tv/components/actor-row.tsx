@@ -31,7 +31,7 @@ export const ActorRow: React.FC<Props> = ({ Actors, tvId, loading }) => {
                 </div>
               </div>
             ))
-          : Actors?.slice(0, 20).map((item, i) => (
+          : Actors?.slice(0, 20).map((item) => (
               <Link href={`/person/${item.id}`} key={item.id}>
                 <div className={Styles.card}>
                   <div className={Styles.poster_path}>

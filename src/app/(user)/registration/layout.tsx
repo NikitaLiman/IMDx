@@ -26,9 +26,8 @@ export default function RootLayoutUserRegistration({
 }>) {
   return (
     <main
-      style={{ backgroundColor: "white" }}
-      className={`${roboto.variable} ${robotoMono.variable}`}
-    >
+      style={{ backgroundColor: "white", height: "100vh" }}
+      className={`${roboto.variable} ${robotoMono.variable}`}>
       {children}
     </main>
   );

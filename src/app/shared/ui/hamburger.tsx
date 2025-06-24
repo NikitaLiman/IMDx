@@ -1,9 +1,7 @@
 import React from "react";
 import Styles from "./sass/hamburger.module.scss";
 
-interface Props {}
-
-export const HamBurger: React.FC<Props> = () => {
+export const HamBurger = () => {
   return (
     <div className={Styles.container}>
       <div className={Styles.container__content}>
