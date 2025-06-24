@@ -1,0 +1,116 @@
+.container {
+  margin: 30px auto;
+  padding: 0px 5px;
+  transition: 0.3s ease;
+  @media (max-width: 1100px) {
+    transition: 0.3s ease;
+    background-color: #121212;
+
+    padding: 1rem;
+  }
+  &__content {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    height: 437px;
+    cursor: pointer;
+    .cardSkeleton {
+      width: 193px;
+      height: 427px;
+      flex-shrink: 0;
+      background: linear-gradient(
+        90deg,
+        #2c2c2c 0%,
+        #3a3a3a 40%,
+        #7a7a7a 60%,
+        #2c2c2c 100%
+      );
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
+      background-size: 300% 100%;
+      animation: shimmer 2.5s infinite;
+      box-shadow: 0 0 10px rgba(245, 197, 24, 0.15);
+    }
+    .card {
+      width: 193px;
+      flex-shrink: 0;
+
+      @media (max-width: 1300px) {
+        width: 172px;
+        height: 255px;
+      }
+      @media (max-width: 1100px) {
+        width: 193px;
+        height: 287px;
+      }
+      .poster_path {
+        img {
+          width: 193px;
+          height: 287px;
+          object-fit: cover;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          @media (max-width: 1300px) {
+            width: 172px;
+            height: 255px;
+          }
+        }
+        .noPoster {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          width: 193px;
+          height: 287px;
+          background-color: #333333;
+          svg {
+            width: 50px;
+            height: 50px;
+            color: #181818;
+          }
+        }
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #181818;
+        height: 150px;
+        padding: 0.735rem 0.5rem;
+
+        .mark {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            width: 15px;
+            height: 15px;
+          }
+
+          span {
+            color: white;
+          }
+        }
+
+        .queue {
+          p {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -300% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}

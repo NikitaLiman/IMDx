@@ -1,0 +1,281 @@
+.container {
+  background-color: rgb(31, 31, 31);
+  max-height: 203px;
+  &__content {
+    padding: 2rem 0;
+    .logoBlock {
+      display: flex;
+      gap: 10px;
+      height: 100%;
+
+      .logo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background-color: hsla(0, 0%, 100%, 0.08);
+        padding: 1rem;
+      }
+      .userInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 15px;
+
+        .calendar {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          h1 {
+            color: white;
+            font-size: 2.5rem;
+          }
+          span {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+          }
+          p {
+            color: rgb(171, 171, 171);
+            font-weight: bold;
+          }
+        }
+        .editProfile {
+          button {
+            border-radius: 20px;
+            background-color: hsla(0, 0%, 100%, 0.08);
+            color: #5799ef;
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+.watchlistBlock {
+  &__container {
+    max-width: 1280px;
+    min-height: 451px;
+    margin: 15px auto;
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      p {
+        color: #000;
+        background-color: #d4af37;
+        border-radius: 50%;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+      }
+    }
+    .overflowContainer {
+      margin: 0 auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      height: 100%;
+      flex: 1;
+      width: 100%;
+      margin-top: 15px;
+      display: flex;
+      gap: 16px;
+      padding: 0 4px 8px 4px;
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .card {
+        flex: 0 0 auto;
+        width: 192px;
+        overflow: hidden;
+        background: #1a1a1a;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-top-right-radius: 12px;
+        cursor: pointer;
+
+        .poster_path {
+          position: relative;
+          width: 100%;
+          height: 288px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .bookmark,
+          .bookmarkChecked {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+            transition: all 0.2s ease;
+            z-index: 2;
+          }
+
+          .bookmark {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+
+            &:hover {
+              background: rgba(60, 60, 60, 0.9);
+            }
+          }
+
+          .bookmarkChecked {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+          }
+        }
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          background: linear-gradient(180deg, #1f1f1f 0%, #181818 100%);
+          min-height: 80px;
+          padding: 16px 12px;
+
+          .mark {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            img {
+              width: 16px;
+              height: 16px;
+              filter: brightness(1.2);
+            }
+
+            span {
+              color: #ffffff;
+              font-size: 14px;
+              font-weight: 600;
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            }
+          }
+
+          .queue {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            line-height: 1.4;
+
+            p {
+              color: #e0e0e0;
+              font-size: 16px;
+              margin: 0;
+              line-height: inherit;
+              transition: color 0.2s ease;
+            }
+          }
+        }
+
+        &:hover {
+          .card__info {
+            .queue p {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        gap: 12px;
+        padding: 0 2px 6px 2px;
+
+        .card {
+          width: 160px;
+
+          .poster_path {
+            height: 240px;
+
+            .bookmark,
+            .bookmarkChecked {
+              width: 28px;
+              height: 36px;
+              font-size: 14px;
+              top: 6px;
+              left: 6px;
+            }
+          }
+
+          &__info {
+            padding: 12px 10px;
+            gap: 10px;
+
+            .mark {
+              gap: 6px;
+
+              img {
+                width: 14px;
+                height: 14px;
+              }
+
+              span {
+                font-size: 13px;
+              }
+            }
+
+            .queue p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .noWatchlist {
+      margin-top: 25px;
+      h1 {
+        color: black;
+        font-weight: 700;
+        font-size: 2rem;
+      }
+      p {
+        margin-top: 10px;
+        font-weight: 500;
+        color: gray;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

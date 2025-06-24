@@ -1,0 +1,386 @@
+.container {
+  position: fixed;
+  top: 59px;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: #181818;
+  z-index: 3;
+  transition: 0.5s ease;
+  .container_scroll {
+    overflow-x: auto;
+    height: calc(100% - 50px);
+  }
+  &__content {
+    display: flex;
+    gap: 25px;
+    padding: 2rem;
+
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
+    .best_result {
+      width: 376px;
+      @media (max-width: 1300px) {
+        width: 100%;
+      }
+      h1 {
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.8rem 0;
+        font-weight: 700;
+      }
+      &__card {
+        padding: 20px;
+        background-color: #121212;
+        border-radius: 12px;
+        img {
+          width: 112px;
+          height: 112px;
+          object-fit: cover;
+          border-radius: 14px;
+        }
+        .noPoster {
+          width: 112px;
+          height: 112px;
+          border-radius: 14px;
+          background-color: #333333;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            width: 50px;
+            height: 50px;
+            color: #181818;
+          }
+        }
+        .name {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          overflow: hidden;
+
+          p {
+            color: white;
+            font-size: 2.3rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .fiveResults {
+      width: 100%;
+      h1 {
+        color: white;
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        font-weight: 700;
+      }
+      &__card {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.235rem 0;
+
+        &__content {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .poster_path {
+            img {
+              border-radius: 4px;
+              width: 40px;
+              height: 40px;
+              object-fit: cover;
+            }
+            .noPoster {
+              border-radius: 4px;
+              width: 40px;
+              height: 40px;
+              background-color: #333333;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              svg {
+                width: 20px;
+                height: 20px;
+                color: #181818;
+              }
+            }
+          }
+          .info {
+            h2 {
+              color: white;
+              font-weight: 700;
+            }
+            p {
+              display: flex;
+              gap: 10px;
+              color: white;
+              span {
+                color: gray;
+              }
+            }
+          }
+        }
+        .pop {
+          @media (max-width: 1300px) {
+            display: none;
+          }
+          p {
+            color: rgba(255, 255, 255, 0.7);
+          }
+        }
+      }
+    }
+  }
+  .movie {
+    padding: 2rem;
+    .scrollContainer {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 10px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      .card {
+        width: 193px;
+        flex-shrink: 0;
+
+        .poster_path {
+          img {
+            width: 193px;
+            height: 287px;
+            object-fit: cover;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+          }
+          .noPoster {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            width: 193px;
+            height: 287px;
+            background-color: #333333;
+            svg {
+              width: 50px;
+              height: 50px;
+              color: #181818;
+            }
+          }
+        }
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background-color: #121212;
+          height: 150px;
+          padding: 0.735rem 0.5rem;
+
+          .mark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+              width: 15px;
+              height: 15px;
+            }
+
+            span {
+              color: white;
+            }
+          }
+
+          .queue {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            p {
+              color: white;
+            }
+          }
+
+          .watchlist {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+
+            button {
+              display: flex;
+              align-items: center;
+              padding: 0 30px;
+              border-radius: 20px;
+              background-color: #333333;
+              color: #5799ef;
+              transition: 0.3s ease;
+              gap: 10px;
+              &:hover {
+                transition: 0.3s ease;
+                background-color: #32598b58;
+              }
+
+              span {
+                font-size: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .tv {
+    padding: 2rem;
+    .scrollContainer {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 10px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      .card {
+        width: 193px;
+        flex-shrink: 0;
+
+        .poster_path {
+          img {
+            width: 193px;
+            height: 287px;
+            object-fit: cover;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+          }
+          .noPoster {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            width: 193px;
+            height: 287px;
+            background-color: #333333;
+            svg {
+              width: 50px;
+              height: 50px;
+              color: #181818;
+            }
+          }
+        }
+
+        &__info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background-color: #121212;
+          height: 150px;
+          padding: 0.735rem 0.5rem;
+
+          .mark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+              width: 15px;
+              height: 15px;
+            }
+
+            span {
+              color: white;
+            }
+          }
+
+          .queue {
+            p {
+              color: white;
+            }
+          }
+
+          .watchlist {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+
+            button {
+              display: flex;
+              align-items: center;
+              padding: 0 30px;
+              border-radius: 20px;
+              background-color: #333333;
+              color: #5799ef;
+              transition: 0.3s ease;
+              gap: 10px;
+              &:hover {
+                transition: 0.3s ease;
+                background-color: #32598b58;
+              }
+
+              span {
+                font-size: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .persons {
+    padding: 2rem;
+    .scrollContainer {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 10px;
+      padding-bottom: 10px;
+      cursor: pointer;
+      .card {
+        width: 194px;
+        cursor: pointer;
+        .poster_path {
+          position: relative;
+
+          img {
+            width: 194px;
+            height: 194px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          &:hover::after {
+            opacity: 1;
+          }
+        }
+        .Fullname {
+          width: 100%;
+          p {
+            padding: 5 10px;
+            text-align: center;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

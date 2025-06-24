@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  justify-content: center;
+  &__content {
+    .logo {
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 107px;
+      height: 52px;
+      background-color: #d4af37;
+
+      font-weight: bold;
+      letter-spacing: -1px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 2.4rem;
+      p {
+        color: black;
+      }
+    }
+    .form {
+      width: 348px;
+      max-height: 561px;
+      border: 1px #d5d9d9 solid;
+
+      .switch {
+        width: 312px;
+        margin: 0 auto;
+        position: relative;
+        display: block;
+        border-top: 2px #d5d9d9 solid;
+
+        .registerbtn {
+          width: 100%;
+          padding: 10px 0;
+
+          .posAbs {
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+              background-color: white;
+              padding: 0px 5px;
+              color: black;
+              font-weight: 600;
+              font-size: 12px;
+            }
+          }
+
+          button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem;
+            color: black;
+            border-radius: 100px;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            border: 2px #d5d9d9 solid;
+            background-color: white;
+            height: 31px;
+            cursor: pointer;
+          }
+        }
+        .loginBtn {
+          padding: 10px 0;
+          span {
+            cursor: pointer;
+            color: #2162a1;
+          }
+        }
+      }
+    }
+  }
+}
+html {
+  background-color: white;
+}

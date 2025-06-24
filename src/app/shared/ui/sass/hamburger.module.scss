@@ -1,0 +1,35 @@
+.container {
+  max-width: fit-content;
+  padding: 5px 15px;
+  background-color: var(--background);
+  transition: 0.3s ease;
+  cursor: pointer;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .ham {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      span {
+        width: 20px;
+        height: 2px;
+        border-radius: 20px;
+        background-color: var(--text);
+      }
+    }
+    .subhead {
+      p {
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+    }
+  }
+  &:hover {
+    transition: 0.3s ease;
+    background-color: rgba(81, 81, 81, 0.7);
+    border-radius: 20px;
+  }
+}

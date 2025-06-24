@@ -1,0 +1,110 @@
+.container {
+  position: relative;
+  cursor: pointer;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: rgb(149, 149, 149);
+    p {
+      font-size: 14px;
+      padding-left: 5px;
+    }
+    .toggleArrows {
+      img {
+        width: 20px;
+        height: 20px;
+        filter: brightness(0) invert(0.6);
+      }
+    }
+    &:hover {
+      background-color: #333333;
+    }
+    border-radius: 5px;
+  }
+
+  .dropDown {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    z-index: 5;
+    h1 {
+      margin-top: 10px;
+      color: #999;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid gray;
+    }
+    ul {
+      padding: 5px 0;
+      .radioOption {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+        position: relative;
+        gap: 15px;
+      }
+
+      section {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        span,
+        p {
+          color: #999;
+        }
+      }
+
+      .radioInput {
+        display: none;
+      }
+
+      .customRadio {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #bbb;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        transition: border-color 0.3s;
+      }
+
+      .radioInput:checked + .customRadio {
+        border-color: #d4af37;
+      }
+
+      .radioInput:checked + .customRadio::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #d4af37;
+        border-radius: 50%;
+      }
+      li {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 208px;
+        gap: 10px;
+        padding: 0.75rem 1rem;
+        color: #999;
+        transition: color 0.2s ease, filter 0.2s ease;
+
+        span {
+          color: gray;
+        }
+      }
+    }
+  }
+}

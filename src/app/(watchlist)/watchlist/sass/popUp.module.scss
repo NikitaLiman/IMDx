@@ -1,0 +1,126 @@
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__content {
+    position: relative;
+    padding: 1.5rem;
+    width: 600px;
+    background-color: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    .close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      top: -35px;
+      right: 0;
+      position: absolute;
+      border-radius: 50%;
+      transition: 0.3s ease;
+      cursor: pointer;
+      svg {
+        transform: rotate(45deg);
+      }
+      &:hover {
+        transition: 0.3s ease;
+        background-color: rgb(86, 86, 86);
+      }
+    }
+    .card {
+      display: flex;
+      gap: 15px;
+      .poster_path {
+        img {
+          width: 72px;
+          height: 106px;
+          border-radius: 12px;
+        }
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        .title {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          h1 {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+          }
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        .year {
+          p {
+            color: rgb(151, 151, 151);
+          }
+        }
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          img {
+            width: 11px;
+            height: 11px;
+          }
+          p {
+            color: rgb(151, 151, 151);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .overview {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      padding-top: 5px;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+    .watchlist {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin-top: 15px;
+
+      button {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        border-radius: 20px;
+        background-color: #333333;
+        color: #5799ef;
+        transition: 0.3s ease;
+        gap: 10px;
+        &:hover {
+          transition: 0.3s ease;
+          background-color: #32598b58;
+        }
+
+        span {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}

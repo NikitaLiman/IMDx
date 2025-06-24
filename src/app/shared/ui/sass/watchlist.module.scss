@@ -1,0 +1,25 @@
+.watchlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+
+  button {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-radius: 20px;
+    background-color: #333333;
+    color: #5799ef;
+    transition: 0.3s ease;
+    gap: 10px;
+    &:hover {
+      transition: 0.3s ease;
+      background-color: #32598b58;
+    }
+
+    span {
+      font-size: 25px;
+    }
+  }
+}
