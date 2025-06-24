@@ -31,7 +31,6 @@ export const getTVCredits = async (id: number) => {
 export const GetPopularPersons = async () => {
   try {
     const res = await tmdb.get(`/person/popular`);
-    console.log(res.data.results, "adfweqafew ");
     return res.data.results;
   } catch (error: any) {
     console.error(error.message);
