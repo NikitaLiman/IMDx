@@ -17,6 +17,12 @@
     flex-direction: column;
     gap: 20px;
     border-radius: 12px;
+    @media (max-width: 640px) {
+      width: 400px;
+    }
+    @media (max-width: 410px) {
+      width: 300px;
+    }
     .close {
       display: flex;
       align-items: center;
