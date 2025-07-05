@@ -22,7 +22,6 @@ export default function Celebrities() {
   const fetch = async () => {
     const data = await GetListOfPersons(100);
     setTrendingPresons(data);
-    console.log(data, "awo;mkaeg;okmag");
   };
   const sortedPersons = React.useMemo(() => {
     const sorted = [...TrendingPersons];

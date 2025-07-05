@@ -35,7 +35,6 @@ export const SearchPage: React.FC<Props> = ({
   const tv = queryValue.filter((type) => type.media_type === "tv");
   const persons = queryValue.filter((type) => type.media_type === "person");
   const { t } = useTranslation();
-  console.log(queryValue, "queryValue");
 
   const handleClickToViewed = (item: MovieAndTvShow) => {
     if (isInViewed(item.id || 0)) {

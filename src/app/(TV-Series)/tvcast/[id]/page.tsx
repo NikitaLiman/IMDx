@@ -26,10 +26,8 @@ export default function CastPage({ params }: Props) {
   const fetch = async () => {
     const credit = await getTVCredits(Number(id));
     setCreditDetails(credit);
-    console.log(credit, ";eawfawf");
     const res = await GetSeriasCurrent(Number(id));
     setTvDetails(res);
-    console.log(res, ";res");
   };
   React.useEffect(() => {
     setLoading(true);

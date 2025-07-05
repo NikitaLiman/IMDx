@@ -53,7 +53,6 @@ export const SearchInput = () => {
           debounceQuery,
           currentType.toLowerCase()
         );
-        console.log(data, "res search");
         setQueryValue(data);
       } catch (error) {
         console.error(error);

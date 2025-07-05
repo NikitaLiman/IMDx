@@ -22,7 +22,6 @@ const RegisterForm: React.FC = () => {
         password: data.password,
         callbackUrl: "/",
       });
-      console.log("User Created");
     } catch (error) {
       console.log(error);
     }

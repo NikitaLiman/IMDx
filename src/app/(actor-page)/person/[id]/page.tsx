@@ -43,9 +43,7 @@ export default function MoviePage({ params }: Props) {
     try {
       const PersnonalInfo = await GetPersonalInfo(Number(id));
       setPersonalInfo(PersnonalInfo);
-      console.log(PersnonalInfo, "PersnonalInfo");
       const creditInfo = await GetCreditInfo(Number(id));
-      console.log(creditInfo, "creditInfo");
       setCreditInfo(creditInfo);
     } catch (error) {
       console.error("Error fetching data:", error);

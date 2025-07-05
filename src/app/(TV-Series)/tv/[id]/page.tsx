@@ -39,7 +39,6 @@ export default function TvPage({ params }: Props) {
     const Recommendations = await getTvRecommendations(Number(id));
     setRecDetails(Recommendations);
   };
-  console.log(recDetails, "recdd");
   React.useEffect(() => {
     setLoading(true);
     fetch().then(() => setLoading(false));

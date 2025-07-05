@@ -16,7 +16,6 @@ export default function Registration() {
       router.push("https://imdx.vercel.app/");
     }
   }, [session, status]);
-  console.log(session, "session");
   const [state, setState] = React.useState<"login" | "register">("login");
   const onSwitch = () => {
     setState(state === "login" ? "register" : "login");

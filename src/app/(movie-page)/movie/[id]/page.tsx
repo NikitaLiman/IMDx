@@ -44,7 +44,6 @@ export default function MoviePage({ params }: PageProps) {
     const res = await GetCurrentMovie(Number(id));
     setMovieDetails(res);
     const trailer = await GetMovieTrailer(Number(id));
-    console.log(trailer, typeof trailer, "trailer");
     setTrailerKey(trailer);
     const credit = await getMovieCredits(Number(id));
     setCreditDetails(credit);

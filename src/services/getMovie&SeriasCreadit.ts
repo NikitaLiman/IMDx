@@ -3,7 +3,7 @@ import { tmdb } from "@/lib/tmdb";
 export const getMovieCredits = async (id: number) => {
   try {
     const { data } = await tmdb.get(`/movie/${id}/credits`);
-    console.log(data, "creditsMovies");
+
     const sortedCredits = data.cast.sort((a: any, b: any) => {
       return a.order - b.order;
     });
