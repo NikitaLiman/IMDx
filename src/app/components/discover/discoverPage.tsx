@@ -24,11 +24,13 @@ export const DiscoverPage = () => {
     GetRelease();
   }, []);
 
-  const GetNextMovies = (Movie: Movie[], startIndex: number, count = 4) => {
+  const GetNextMovies = (movies: Movie[], startIndex: number, count = 4) => {
+    if (!movies || movies.length === 0) return [];
     const result = [];
 
     for (let i = 1; i <= count; i++) {
-      result.push(Movie[(startIndex + i) % Movie.length]);
+      const index = (startIndex + i) % movies.length;
+      if (movies[index]) result.push(movies[index]);
     }
     return result;
   };
