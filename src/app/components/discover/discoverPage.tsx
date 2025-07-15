@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Container } from "../container";
 import { Slider, ScrollDiscover } from "./index";
 import Styles from "./sass/discover.module.scss";
@@ -8,47 +7,80 @@ import { GetReleaseMovies } from "@/services/fetchMovies&Serias";
 import { Movie } from "@/interfaces";
 import { useTranslation } from "react-i18next";
 
+const NEXT_MOVIES_COUNT = 4;
+
 export const DiscoverPage = () => {
   const { t } = useTranslation();
-  const [ReleaseMovies, setReleaseMovies] = React.useState<Movie[]>([]);
-  const [activeIndex, setActiveIndex] = React.useState<number>(0);
-  const [loading, setLoading] = React.useState<boolean>(true);
-  const GetRelease = async () => {
-    setLoading(true);
-    const data = await GetReleaseMovies();
-    console.log("Fetched movies:", data);
-    setReleaseMovies(data);
-    setLoading(false);
-  };
+  const [releaseMovies, setReleaseMovies] = useState<Movie[]>([]);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  React.useEffect(() => {
-    GetRelease();
+  const fetchReleaseMovies = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const data = await GetReleaseMovies();
+
+      if (!data || data.length === 0) {
+        throw new Error("No movies found");
+      }
+
+      setReleaseMovies(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to fetch movies");
+      console.error("Error fetching movies:", err);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  const GetNextMovies = (Movie: Movie[], startIndex: number, count = 4) => {
-    if (ReleaseMovies.length === 0) return [];
-    let result = [];
+  useEffect(() => {
+    fetchReleaseMovies();
+  }, [fetchReleaseMovies]);
 
-    for (let i = 1; i <= count; i++) {
-      result.push(Movie[(startIndex + i) % Movie.length]);
+  const nextMovies = useMemo(() => {
+    if (releaseMovies.length === 0) return [];
+
+    const result: Movie[] = [];
+    const totalMovies = releaseMovies.length;
+
+    for (let i = 1; i <= NEXT_MOVIES_COUNT; i++) {
+      const nextIndex = (activeIndex + i) % totalMovies;
+      result.push(releaseMovies[nextIndex]);
     }
 
-    console.log("result:", result);
     return result;
-  };
+  }, [releaseMovies, activeIndex]);
+
+  const handleActiveIndexChange = useCallback((index: number) => {
+    setActiveIndex(index);
+  }, []);
+
+  if (error) {
+    return (
+      <Container classname={Styles.container}>
+        <div className={Styles.error}>
+          <p>Error: {error}</p>
+          <button onClick={fetchReleaseMovies}>Retry</button>
+        </div>
+      </Container>
+    );
+  }
 
   return (
     <Container classname={Styles.container}>
       <div className={Styles.container__content}>
         <Slider
           loading={loading}
-          ReleaseMovies={ReleaseMovies}
-          setActiveIndex={setActiveIndex}
+          ReleaseMovies={releaseMovies}
+          setActiveIndex={handleActiveIndexChange}
         />
         <ScrollDiscover
           loading={loading}
           title={t("upNext")}
-          ReleaseMovies={GetNextMovies(ReleaseMovies, activeIndex)}
+          ReleaseMovies={nextMovies}
         />
       </div>
     </Container>
