@@ -22,7 +22,7 @@ export const Header = () => {
   return (
     <div className={Styles.container}>
       <Container classname={Styles.container__content}>
-        <Link href={"/"}>
+        <Link href={"https://imdx.vercel.app/"}>
           <div className={Styles.logo}>IMDX</div>
         </Link>
         <SearchInput />
