@@ -16,6 +16,7 @@ export const DiscoverPage = () => {
   const GetRelease = async () => {
     setLoading(true);
     const data = await GetReleaseMovies();
+    console.log("Fetched movies:", data);
     setReleaseMovies(data);
     setLoading(false);
   };
@@ -24,14 +25,15 @@ export const DiscoverPage = () => {
     GetRelease();
   }, []);
 
-  const GetNextMovies = (movies: Movie[], startIndex: number, count = 4) => {
-    if (!movies || movies.length === 0) return [];
-    const result = [];
+  const GetNextMovies = (Movie: Movie[], startIndex: number, count = 4) => {
+    if (ReleaseMovies.length === 0) return [];
+    let result = [];
 
     for (let i = 1; i <= count; i++) {
-      const index = (startIndex + i) % movies.length;
-      if (movies[index]) result.push(movies[index]);
+      result.push(Movie[(startIndex + i) % Movie.length]);
     }
+
+    console.log("result:", result);
     return result;
   };
 
